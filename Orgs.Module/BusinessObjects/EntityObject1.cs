@@ -33,20 +33,23 @@ namespace Orgs.Module.BusinessObjects
         // You can use the regular Code First syntax:
         //public string Name { get; set; }
 
-        // Alternatively, specify more UI options: 
-        //private string _PersistentProperty;
-        //[XafDisplayName("My display name"), ToolTip("My hint message")]
-        //[ModelDefault("EditMask", "(000)-00"), VisibleInListView(false)]
-        //[RuleRequiredField(DefaultContexts.Save)]
-        //public string PersistentProperty {
-        //    get { return _PersistentProperty; }
-        //    set {
-        //        if (_PersistentProperty != value) {
-        //            _PersistentProperty = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
+        //Alternatively, specify more UI options: 
+        private string _PersistentProperty;
+        [XafDisplayName("My display name"), ToolTip("My hint message")]
+        [ModelDefault("EditMask", "(000)-00"), VisibleInListView(false)]
+        [RuleRequiredField(DefaultContexts.Save)]
+        public string PersistentProperty
+        {
+            get { return _PersistentProperty; }
+            set
+            {
+                if (_PersistentProperty != value)
+                {
+                    _PersistentProperty = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         // Collection property:
         //public virtual IList<AssociatedEntityObject> AssociatedEntities { get; set; }

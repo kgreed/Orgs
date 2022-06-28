@@ -1,21 +1,20 @@
 ﻿using DevExpress.Persistent.Base;
-using Newtonsoft.Json;
 using System;
-using System.IO;
 using System.Linq;
 
 namespace Orgs.Module.BusinessObjects
 {
-    public class CustomerFilter : IFilter
+    public class SupplierFilter : IFilter
     {
-        public CustomerFilter(){
+        public SupplierFilter()
+        {
             Name = "";
         }
 
         [VisibleInDetailView(true)]
         public string Name { get; set; }
 
- 
+
         public void Reset()
         {
             Name = "";

@@ -12,16 +12,16 @@ using System.Linq;
 namespace Orgs.Module.BusinessObjects
 {
     [DomainComponent]
-    public class CustomerFilterHolder :IFilterHolder
+    public class SupplierFilterHolder : IFilterHolder
     {
-        public CustomerFilter Filter;
+        public SupplierFilter Filter;
 
-        public CustomerFilterHolder(CustomerFilter filter)
+        public SupplierFilterHolder(SupplierFilter filter)
         {
             Filter = filter;
         }
- 
-        public List<Customer> Customers { get; set; }
+
+        public List<Supplier> Suppliers { get; set; }
 
         [NotMapped]
         [Browsable(false)]
@@ -32,7 +32,7 @@ namespace Orgs.Module.BusinessObjects
             var sql = @"select Name,Id,Photo,Description,Customer_Email,FullName,Profile,WebSite , Address1ID,Address2ID,Discriminator 
                 from Party ";
 
-            if ( Filter.Name.Length > 0) { sql +="where name like '%@p0%'";}
+            if (Filter.Name.Length > 0) { sql += "where name like '%@p0%'"; }
 
 
             var db = DataHelpers.MakeDbContext();
@@ -48,22 +48,22 @@ namespace Orgs.Module.BusinessObjects
             };
 
 
-            var results = db.Customers.FromSqlRaw(sql,parameters.ToArray());
+            var results = db.Suppliers.FromSqlRaw(sql, parameters.ToArray());
 
-            Customers = new List<Customer>();
+            Suppliers = new List<Supplier>();
             foreach (var r in results)
             {
                 var o = ObjectSpace.GetObject(r);
-                Customers.Add(o);
+                Suppliers.Add(o);
             }
 
 
-            return Customers.Count();
+            return Suppliers.Count();
         }
 
         public int ListCount()
         {
-            return Customers.Count;
+            return Suppliers.Count;
         }
     }
 }

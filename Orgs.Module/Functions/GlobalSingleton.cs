@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Orgs.Module.Functions
 {
-   
+
     public sealed class GlobalSingleton
     {
         private static readonly Lazy<GlobalSingleton>
@@ -14,16 +14,11 @@ namespace Orgs.Module.Functions
 
         public CustomerFilter CustomerFilter
         {
-            get => _customerFilter ??= MakeNewCustomerFilter();
+            get => _customerFilter ??= new CustomerFilter();
             set => _customerFilter = value;
         }
 
-        private static CustomerFilter MakeNewCustomerFilter()
-        {
-            var f1 = new CustomerFilter();
-            var f2 = f1.ReadFromFile() as CustomerFilter;
-            return f2 ?? f1;
-        }
+
 
         private GlobalSingleton()
         {
@@ -33,6 +28,15 @@ namespace Orgs.Module.Functions
         public static GlobalSingleton Instance => lazy.Value;
 
 
+
+
+        private SupplierFilter _supplierFilter;
+
+        public SupplierFilter SupplierFilter
+        {
+            get => _supplierFilter ?? new SupplierFilter();
+            set => _supplierFilter = value;
+        }
 
     }
 }

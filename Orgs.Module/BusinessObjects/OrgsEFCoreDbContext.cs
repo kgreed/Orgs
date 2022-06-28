@@ -20,7 +20,9 @@ namespace Orgs.Module.BusinessObjects
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<ApplicationUserLoginInfo> UserLoginInfos { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Party> Parties { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+
+        // public DbSet<Party> Parties { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,7 +33,9 @@ namespace Orgs.Module.BusinessObjects
             });
 
             modelBuilder.Entity<Party>().ToTable("Party").HasDiscriminator<string>("Discriminator")
-                .HasValue<Customer>("Customer");
+                .HasValue<Customer>("Customer")
+                .HasValue<Supplier>("Supplier")
+                ;
         }
     }
 }

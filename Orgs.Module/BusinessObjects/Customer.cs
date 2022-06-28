@@ -12,7 +12,7 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 namespace Orgs.Module.BusinessObjects
 {
     [NavigationItem("Data")]
-    [Table("Party")]
+   
     public class Customer : Organization {
 
         public Customer() { 
