@@ -38,6 +38,12 @@ namespace Orgs.Module.BusinessObjects
                 .HasValue<Customer>(1)
                 .HasValue<Supplier>(2)
                 ;
+
+            modelBuilder.Entity<Contact>().ToTable("Contacts");
+            modelBuilder.Entity<Contact>().HasDiscriminator(x => x.ContactType)
+                .HasValue<CustomerContact>(1)
+                .HasValue<SupplierContact>(2)
+                ;
         }
     }
 }
