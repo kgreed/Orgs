@@ -19,12 +19,13 @@ namespace Orgs.Module.BusinessObjects
         public DbSet<PermissionPolicyRole> Roles { get; set; }
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<ApplicationUserLoginInfo> UserLoginInfos { get; set; }
+       
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
-        // public DbSet<Party> Parties { get; set; }
 
-        public DbSet<Contact> Contacts { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ApplicationUserLoginInfo>(b =>
@@ -32,9 +33,10 @@ namespace Orgs.Module.BusinessObjects
                 b.HasIndex(nameof(DevExpress.ExpressApp.Security.ISecurityUserLoginInfo.LoginProviderName), nameof(DevExpress.ExpressApp.Security.ISecurityUserLoginInfo.ProviderUserKey)).IsUnique();
             });
 
-            modelBuilder.Entity<Party>().ToTable("Party").HasDiscriminator<string>("Discriminator")
-                .HasValue<Customer>("Customer")
-                .HasValue<Supplier>("Supplier")
+            modelBuilder.Entity<Organization>().ToTable("Organizations");
+            modelBuilder.Entity<Organization>().HasDiscriminator(x=>x.OrganizationType)
+                .HasValue<Customer>(1)
+                .HasValue<Supplier>(2)
                 ;
         }
     }

@@ -12,7 +12,7 @@ namespace Orgs.Module.BusinessObjects
 
         public Supplier()
         {
-
+            OrganizationType = 2;
 
         }
 

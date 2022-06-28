@@ -29,24 +29,28 @@ namespace Orgs.Module.BusinessObjects
 
         public int ApplyFilter()
         {
-            var sql = @"select Name,Id,Photo,Description,Customer_Email,FullName,Profile,WebSite , Address1ID,Address2ID,Discriminator 
-                from Party ";
+            var sql = @"select Name,Id,Phone,Comments, organizationtype 
+                from organizations o where organizationtype = 2 ";
+
 
             if (Filter.Name.Length > 0) { sql += "where name like '%@p0%'"; }
 
-
             var db = DataHelpers.MakeDbContext();
-            var parameters = new List<SqlParameter>
-            {
+
+             
+            var parameters = new List<SqlParameter>{ };
+
+            if (Filter.Name.Length > 0)
+            { 
+                parameters.Add(
                 new SqlParameter
                 {
 
                     DbType = System.Data.DbType.String,
                     ParameterName = "@p0",
                     Value = Filter.Name
-                }
-            };
-
+                });
+            }
 
             var results = db.Suppliers.FromSqlRaw(sql, parameters.ToArray());
 
