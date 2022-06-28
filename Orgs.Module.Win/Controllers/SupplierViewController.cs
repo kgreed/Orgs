@@ -9,11 +9,11 @@ namespace Orgs.Module.Win.Controllers
 {
     public class SupplierViewController : ViewController
     {
-        SimpleAction actSupplierFilter;
+        //SimpleAction actSupplierFilter;
         public SupplierViewController() : base()
         {
-            actSupplierFilter = new SimpleAction(this, "Suppliers", "View");
-            actSupplierFilter.Execute += actSupplierFilter_Execute;
+            //actSupplierFilter = new SimpleAction(this, "Suppliers", "View");
+            //actSupplierFilter.Execute += actSupplierFilter_Execute;
 
 
         }

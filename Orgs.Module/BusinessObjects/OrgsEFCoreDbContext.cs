@@ -19,11 +19,12 @@ namespace Orgs.Module.BusinessObjects
         public DbSet<PermissionPolicyRole> Roles { get; set; }
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<ApplicationUserLoginInfo> UserLoginInfos { get; set; }
-       
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
-
+        public DbSet<CustomerContact> CustomerContacts { get; set; }
+        public DbSet<SupplierContact> SupplierContacts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,7 +35,7 @@ namespace Orgs.Module.BusinessObjects
             });
 
             modelBuilder.Entity<Organization>().ToTable("Organizations");
-            modelBuilder.Entity<Organization>().HasDiscriminator(x=>x.OrganizationType)
+            modelBuilder.Entity<Organization>().HasDiscriminator(x => x.OrganizationType)
                 .HasValue<Customer>(1)
                 .HasValue<Supplier>(2)
                 ;

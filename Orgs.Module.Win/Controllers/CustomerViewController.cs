@@ -20,13 +20,13 @@ namespace Orgs.Module.Win.Controllers
 {
     public partial class CustomerViewController : ViewController
     {
-        SimpleAction actCustomerFilter;
+       // SimpleAction actCustomerFilter;
        
         public CustomerViewController()
         {
             InitializeComponent();
-            actCustomerFilter = new SimpleAction(this, "Customers", "View");
-            actCustomerFilter.Execute += actCustomerFilter_Execute;
+            //actCustomerFilter = new SimpleAction(this, "Customers", "View");
+            //actCustomerFilter.Execute += actCustomerFilter_Execute;
             
             
         }
