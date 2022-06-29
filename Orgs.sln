@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orgs.Module.Win", "Orgs.Mod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orgs.Win", "Orgs.Win\Orgs.Win.csproj", "{E51BC452-06E5-47E8-88A2-9F318245DDF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,12 @@ Global
 		{E51BC452-06E5-47E8-88A2-9F318245DDF9}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{E51BC452-06E5-47E8-88A2-9F318245DDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E51BC452-06E5-47E8-88A2-9F318245DDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315FCCAA-FA56-4B24-86F0-9ED4A26C7676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

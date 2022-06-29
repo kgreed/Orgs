@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Orgs.Module.Functions
 {
 
@@ -16,6 +17,14 @@ namespace Orgs.Module.Functions
         public static OrgsEFCoreDbContext MakeDbContext()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            var optionsBuilder = new DbContextOptionsBuilder<OrgsEFCoreDbContext>()
+                .UseSqlServer(connectionString);
+            return new OrgsEFCoreDbContext(optionsBuilder.Options);
+        }
+
+        public static OrgsEFCoreDbContext MakeDbContext(string connectionString)
+        {
+          
             var optionsBuilder = new DbContextOptionsBuilder<OrgsEFCoreDbContext>()
                 .UseSqlServer(connectionString);
             return new OrgsEFCoreDbContext(optionsBuilder.Options);
